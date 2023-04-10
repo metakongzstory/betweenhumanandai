@@ -1,10 +1,10 @@
-const apiKey = "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"
+const apiKey = "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"
 const serverless = require('serverless-http');
 const { Configuration, OpenAIApi } = require("openai");
 const express = require('express')
 var cors = require('cors')
 const app = express()
-app.use(express.json());
+//app.use(express.json());
 
 const configuration = new Configuration({
   apiKey: apiKey,
@@ -12,12 +12,12 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 //CORS 이슈 해결
-//let corsOptions = {
-//origin: 'https://betweenhumanandai.netlify.app',
-//credentials: true
-//}
-//app.use(cors(corsOptions));
-app.use(cors());
+let corsOptions = {
+origin: 'https://betweenhumanandai.netlify.app',
+credentials: true
+}
+app.use(cors(corsOptions));
+//app.use(cors());
 
 //POST 요청 받을 수 있게 만듬
 app.use(express.json()) // for parsing application/json
@@ -76,6 +76,5 @@ module.exports.handler = serverless(app);
 //console.log('Server is listening...');
 //});
 //마지막 백엔드 프론트엔드 연결 시에 윗 줄 지우기
-
 
 
