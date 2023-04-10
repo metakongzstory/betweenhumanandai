@@ -1,5 +1,5 @@
 const apiKey = "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"
-//const serverless = require('serverless-http');
+const serverless = require('serverless-http');
 const { Configuration, OpenAIApi } = require("openai");
 const express = require('express')
 var cors = require('cors')
@@ -70,10 +70,12 @@ app.post('/lang', async function (req, res) {
   res.json({ "assistant": lang });
 });
 
-//module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);
 
-app.listen(3000, () => {
-console.log('Server is listening...');
-});
+//app.listen(3000, () => {
+//console.log('Server is listening...');
+//});
 //마지막 백엔드 프론트엔드 연결 시에 윗 줄 지우기
+
+
 
