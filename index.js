@@ -12,12 +12,12 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 //CORS 이슈 해결
-let corsOptions = {
-origin: 'https://betweenhumanandai.netlify.app',
-credentials: true
-}
-app.use(cors(corsOptions));
-//app.use(cors());
+//let corsOptions = {
+//origin: 'https://betweenhumanandai.netlify.app',
+//credentials: true
+//}
+//app.use(cors(corsOptions));
+app.use(cors());
 
 //POST 요청 받을 수 있게 만듬
 app.use(express.json()) // for parsing application/json
